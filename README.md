@@ -1,2 +1,2 @@
 # Courier-API
-Django REST application with API endpoints
+Django REST application
