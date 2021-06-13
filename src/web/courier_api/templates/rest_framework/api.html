@@ -1,0 +1,24 @@
+{% extends "rest_framework/base.html" %}
+
+{% block title %} Courier API {% endblock %}
+{% block branding %}
+    <span>
+    <a class='navbar-brand' rel="nofollow" href="/">
+        Courier API <span class="version">1</span>
+    </a>
+    </span>
+{% endblock %}
+
+{% block description %}
+    {{ description }}
+    {% if request.resolver_match.url_name == 'file_upload' %}
+        <a href="/">
+            <button style="margin-bottom: 10px;" class="btn btn-primary button-form">GO BACK</button>
+        </a>
+    {% endif %}
+    {% if request.META.PATH_INFO == '/api/' %}
+        <a href="{% url 'file_upload' %}">
+            <button style="margin-bottom: 10px;" class="btn btn-danger button-form js-tooltip" title="Upload CSV to get active couriers" data-toggle="modal">UPLOAD CSV</button>
+        </a>
+    {% endif %}
+{% endblock %}
